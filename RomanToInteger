@@ -1,0 +1,23 @@
+public class MainDay8 {
+	public static void main(String[] args) {
+		
+		System.out.print(romanToInteger("IV"));
+	}
+  public static int romanToInteger(String s) { 
+		int result = 0;
+		int current = symbolToValue(s.charAt(0));
+		for (int i = 1; i < s.length(); i++) {
+			int next = symbolToValue(s.charAt(i));
+			if (current < next)
+				result -= current;
+			else
+				result += current;
+			current = next;
+		}
+		result += current;
+
+		return result;
+
+	}
+  }
+  // time complex 0(n)
